@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questions - Knowledge Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 text-gray-800">
+
+
+  <header
+    class="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2 group">
+          <div class="relative">
+            <svg class="h-8 w-8 text-blue-600 group-hover:text-purple-600 transition-colors duration-300" fill="none"
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <div
+              class="absolute inset-0 bg-blue-600 group-hover:bg-purple-600 opacity-20 rounded-full blur-sm transition-all duration-300">
+            </div>
+          </div>
+          <span
+            class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            StackIt
+          </span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center space-x-4">
+          <a href="/questions"
+            class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Questions</a>
+          <a href="/postquestion"
+            class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Post Question</a>
+          <a href="/askquestion"
+            class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Ask Question</a>
+          <a href="/community"
+            class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Users</a>
+        </nav>
+
+        <!-- Search (desktop only) -->
+        <div class="hidden md:flex relative max-w-sm w-full mx-4">
+          <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" fill="none"
+            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" />
+          </svg>
+          <input type="text" placeholder="Search..."
+            class="pl-10 bg-gray-50 border border-gray-200 rounded-md py-2 px-3 focus:bg-white focus:border-blue-300 transition-all duration-200 w-full" />
+        </div>
+
+        <!-- Profile + Toggle Button -->
+        <div class="flex items-center space-x-4 lg:space-x-2">
+          <a href="/profile" class="hidden md:block p-2 rounded-md hover:bg-gray-100 transition">
+            <svg class="h-5 w-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          </a>
+
+          <!-- Hamburger -->
+          <button id="mobileToggle" class="block lg:hidden p-2 rounded-md hover:bg-gray-100">
+            <svg class="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+      <nav class="space-y-2 mt-2">
+        <a href="/questions"
+          class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Questions</a>
+        <a href="/leaderboard"
+          class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Leaderboard</a>
+        <a href="/tags"
+          class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Tags</a>
+        <a href="/users"
+          class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Users</a>
+        <a href="/profile"
+          class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Profile</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+
+  <div class="max-w-6xl mx-auto px-4 py-8">
+
+    <div class="text-center mb-10">
+      <h1
+        class="text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+        Explore Questions
+      </h1>
+      <p class="text-gray-600 text-lg">Browse or search questions from our community</p>
+    </div>
+
+
+    <div class="flex justify-center mb-8">
+      <input type="text" id="searchInput" placeholder="Search questions..."
+        class="w-full max-w-xl px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+
+
+    <div id="questionsList" class="space-y-6">
+      <% questions.forEach(q=> { %>
+        <a href="/question/<%= q._id %>">
+
+          <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition space-y-3">
+            <h2 class="text-xl font-semibold text-blue-600">
+              <%= q.title %>
+            </h2>
+            <p class="text-sm text-gray-500">Asked by <span class="font-medium">
+                <%= q.author %>
+              </span></p>
+
+            <% if (q.image) { %>
+              <img src="<%= q.image %>" alt="question image" class="rounded-lg w-full object-cover max-h-60" />
+              <% } %>
+
+                <div class="flex flex-wrap gap-2">
+                  <% q.tags.forEach(tag=> { %>
+                    <span class="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">
+                      <%= tag %>
+                    </span>
+                    <% }) %>
+                </div>
+
+                <div class="flex justify-between items-center">
+                  <p class="text-sm text-green-600 font-medium">
+                    <%= q.answers.length %> Answers
+                  </p>
+                  <button class="like-btn text-gray-500 hover:text-pink-600 transition flex items-center gap-1">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                2 6 4 4 6.5 4c1.74 0 3.41 1.01 4.13 2.44H13.37C14.09 5.01 15.76 4 17.5 4
+                20 4 22 6 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                    <span>Like</span>
+                    <a href="/seeanswer/<%= q._id %>">
+                      <button class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                        See Answers
+                      </button>
+                    </a>
+                  </button>
+                </div>
+          </div>
+        </a>
+        <% }) %>
+    </div>
+
+
+
+  </div>
+
+</body>
+
+</html>
