@@ -1,4 +1,5 @@
 # 📚 StackIt - A Knowledge Sharing Community Platform
+video link of this project :- https://youtu.be/z8YQmwErZ64?si=2a10Qo5uQoXz8u94
 
 StackIt is a full-featured Q&A web application where users can ask questions, give answers, vote on the best solutions, and rise in the leaderboard. It supports multiple communities such as Developers, SSC aspirants, JEE students, NEET candidates, and more.
 
