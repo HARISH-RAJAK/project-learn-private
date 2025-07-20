@@ -20,7 +20,7 @@ router.get('/profile', isLoggedIn, async (req, res) => {
   const user = await userModel.findOne({ username: req.session.passport.user });
   if (!user) return res.status(404).send('User not found');
 
-  
+
   const allQuestions = await Question.find({});
   let totalAnswers = 0;
 
@@ -76,6 +76,34 @@ router.get('/askquestion', isLoggedIn, async (req, res) => {
   res.render('question');
 });
 
+router.get('/leaderboard', async (req, res) => {
+  try {
+    const users = await userModel.find({});
+
+    const leaderboardData = await Promise.all(users.map(async user => {
+      const questionCount = await Question.countDocuments({ author: user.username });
+
+      return {
+        username: user.username,
+        fullname: user.fullname,
+        questionCount,
+      };
+    }));
+
+    // Sort by question count descending
+    leaderboardData.sort((a, b) => b.questionCount - a.questionCount);
+    console.log(leaderboardData);
+    res.render('leaderboard', { leaderboard: leaderboardData });
+  } catch (err) {
+    console.error('❌ Error generating leaderboard:', err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+
+
+
 
 
 router.get('/question/:id', isLoggedIn, async (req, res) => {
@@ -94,10 +122,12 @@ router.post('/question/:id', isLoggedIn, upload.single('image'), async (req, res
     const question = await Question.findById(req.params.id);
     if (!question) return res.status(404).send("Question not found");
 
+    const loggedInUser = await userModel.findOne({ username: req.session.passport.user });
+
     const answer = {
-      author: req.session.passport.user || 'Anonymous',
+      user: loggedInUser._id,
       content: req.body.description,
-      image: req.file ? '/uploads/' + req.file.filename : null, // ✅ optional image
+      image: req.file ? '/uploads/' + req.file.filename : null,
       createdAt: new Date(),
       likes: 0
     };
@@ -111,6 +141,7 @@ router.post('/question/:id', isLoggedIn, upload.single('image'), async (req, res
     res.status(500).send("Server Error while posting answer");
   }
 });
+
 
 router.get('/seeanswer/:id', async (req, res) => {
   try {

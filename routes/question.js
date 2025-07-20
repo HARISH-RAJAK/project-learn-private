@@ -7,7 +7,7 @@ const answerSchema = new mongoose.Schema({
   likes: { type: Number, default: 0 },
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User" // 👈 Add this to enable .populate('answers.user')
+    ref: "User" //
   }
 });
 

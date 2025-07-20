@@ -38,8 +38,10 @@
             class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Questions</a>
           <a href="/postquestion"
             class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Post Question</a>
-          <a href="/askquestion"
-            class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Ask Question</a>
+          <a href="/leaderboard"
+            class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Leaderboard</a>
+          <a href="/topics"
+            class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Topics</a>  
           <a href="/community"
             class="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition">Users</a>
         </nav>
@@ -54,7 +56,7 @@
             class="pl-10 bg-gray-50 border border-gray-200 rounded-md py-2 px-3 focus:bg-white focus:border-blue-300 transition-all duration-200 w-full" />
         </div>
 
-        <!-- Profile + Toggle Button -->
+        
         <div class="flex items-center space-x-4 lg:space-x-2">
           <a href="/profile" class="hidden md:block p-2 rounded-md hover:bg-gray-100 transition">
             <svg class="h-5 w-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -62,8 +64,11 @@
                 d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
             </svg>
           </a>
+          <a href="/logout" class="hidden md:block p-2 rounded-md hover:bg-gray-100 transition">
+            <button>logout</button>
+          </a>
 
-          <!-- Hamburger -->
+          
           <button id="mobileToggle" class="block lg:hidden p-2 rounded-md hover:bg-gray-100">
             <svg class="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M4 6h16M4 12h16M4 18h16" />
@@ -113,7 +118,7 @@
             </h1>
             <p class="text-gray-600 text-sm">Developer | Contributor | Learner</p>
             <div class="mt-3 flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">Expert</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">Full Stack developer</span>
               <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">Mentor</span>
               <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">Scholar</span>
             </div>
@@ -134,7 +139,7 @@
         <div class="text-gray-600 text-sm">Answers</div>
       </div>
       <div class="bg-yellow-50 p-4 rounded-lg shadow">
-        <div class="text-xl font-bold text-yellow-600">0</div> <!-- Add best answer logic later if needed -->
+        <div class="text-xl font-bold text-yellow-600">0</div> 
         <div class="text-gray-600 text-sm">Best Answers</div>
       </div>
       <div class="bg-purple-50 p-4 rounded-lg shadow">
@@ -144,12 +149,11 @@
     </div>
 
 
-    <!-- Bio/About Section -->
+
     <div class="bg-gray-50 p-5 rounded-lg shadow mb-6">
       <h2 class="text-xl font-semibold mb-2 text-gray-800">About Me</h2>
       <p class="text-gray-700 text-sm leading-relaxed">
-        Hi, I'm Sakshi, a passionate software developer contributing to community platforms like Knowledge Hub. I love
-        solving coding challenges, answering questions, and helping others grow in their learning journey.
+        bio static now
       </p>
     </div>
 
